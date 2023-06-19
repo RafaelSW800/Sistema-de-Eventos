@@ -208,6 +208,13 @@ header {
 .dashboard-events-container form{
     display: inline-block; /* Faz com que os itens alinhem-se um ao lado do outro */
 }
+
+/* EDIT PAGE */
+.img-preview{
+    width: 100px;
+    margin-top: 20px;
+}
+
 /* footer */
 footer {
   text-align: center;

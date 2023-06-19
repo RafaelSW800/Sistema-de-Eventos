@@ -8,7 +8,6 @@ use App\Models\User;
 
 class EventController extends Controller
 {
-
     public function index() {
         $search = request('search');
 
@@ -20,9 +19,11 @@ class EventController extends Controller
         return view('welcome',['events' => $events, 'search' => $search]);
 
     }
+
     public function create() {
         return view('events.create');
     }
+
     public function store(Request $request) {
 
         $event = new Event;
@@ -50,6 +51,7 @@ class EventController extends Controller
 
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
+
     public function show($id) {
 
         $event = Event::findOrFail($id);
@@ -57,16 +59,43 @@ class EventController extends Controller
 
         return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
     }
+
     public function dashboard(){
         $user = auth()->user();
         $events = $user->events;
 
         return view('events.dashboard', ['events' => $events]);
     }
+
     public function destroy($id){
         Event::findOrFail($id)->delete(); //vai encontrar esse evento no banco de dados pela ID passado da view
 
         return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
+    }
+
+    public function edit($id){
+        $event = Event::findOrFail($id);
+
+        return view('events.edit', ['event' => $event]);
+    }
+
+    public function update(Request $request){
+
+        $data = $request->all();
+
+        // Image Upload
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            //Essa linha vai permitir que os arquivos de imagens adicionados ao documento pelo usuário recebem nomes únicos.
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/events'), $imageName);
+            $data['image'] = $imageName;
+        }
+        Event::findOrFail($request->id)->update($data);
+
+        return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
     }
 }
 
