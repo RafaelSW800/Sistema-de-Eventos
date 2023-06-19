@@ -205,7 +205,9 @@ header {
 .dashboard-events-container th{
     width: 25%;
 }
-
+.dashboard-events-container form{
+    display: inline-block; /* Faz com que os itens alinhem-se um ao lado do outro */
+}
 /* footer */
 footer {
   text-align: center;

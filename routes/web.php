@@ -20,6 +20,7 @@ Route::get('/events/create', [EventController::class, 'create'])->middleware('au
 //o método "middleware('auth'); faz com que aquela seção do sistema só seja acessível ao usuário logado.
 Route::get('/events/{id}', [EventController::class, 'show']);
 Route::post('/events', [EventController::class, 'store']);
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
 
 Route::get('/contact', function () {
     return view('contact');
