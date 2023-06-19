@@ -10,9 +10,20 @@ class event extends Model
 {
     use HasFactory;
 
-    //Essa seção diz ao Laravel que o Items é do tipo array e data.
+    //Essa seção diz ao Laravel que o Items é do tipo array.
     protected $casts =[
         'Items' => 'array'
     ];
     protected $dates = ['Date'];
+
+    protected $guarded = [];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function users(){
+        return $this->belongsToMany('App\Models\User');
+    }
+
 }
