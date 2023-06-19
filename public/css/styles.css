@@ -1,6 +1,6 @@
 /* General */
 * {
-  font-family: 'Roboto';
+    font-family: 'Roboto';
 }
 
 body {
@@ -40,6 +40,15 @@ header {
   margin-bottom: 0;
   text-align: center;
   padding: 10px;
+}
+
+#info-container .already-joined-msg{
+    margin: 15px 0;
+    color: #004085;
+    background-color: #CCE5FF;
+    border: 1px solid #88DAFF;
+    padding: 10px;
+    width: 245px;
 }
 
 /* navbar */
@@ -110,7 +119,7 @@ header {
 }
 
 #events-container img {
-  max-height: 150px;
+  /*max-height: 150px;*/
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
