@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', '{{$event->Title}}')
+@section('title', '{{ $event->Title }}')
 
 @section('content')
 

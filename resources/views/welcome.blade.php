@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'HDC Events')
+@section('title', 'Horizonte de Eventos')
 
 @section('content')
 
@@ -15,7 +15,6 @@
     <h2>Buscando por: {{ $search }}</h2>
     @else
     <h2>Próximos Eventos</h2>
-    <p class="subtitle">Veja os eventos dos próximos dias</p>
     @endif
     <div id="cards-container" class="row">
         @foreach($events as $event)

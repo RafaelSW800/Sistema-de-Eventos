@@ -1,14 +1,14 @@
-@extends('layouts.main')
+@extends('layouts.dashboard')
 @section('title', 'Dashboard')
 
 @section('content')
 
-<div class="col-md-10 offset-md-1 dashboard-title-container">
-    <h1>Meus eventos</h1>
+<div class="col-md-10 offset-md-1 dashboard-title-container" style="margin-top: 120px;">
+    <h1 style="color: #00A9E0;">Meus eventos</h1>
 </div>
-<div class="col-md-10 offset-md-1 dashboard-events-container">
+<div class="col-md-10 offset-md-1 dashboard-events-container" style="width: 70%!important; margin-bottom: 65px;">
     @if(count($events) > 0)
-        <table class="table">
+        <table class="table" id="primeira">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -39,8 +39,9 @@
         <p>Você ainda não tem eventos, <a href="/events/create">Criar evento</a></p>
     @endif
 </div>
+
 <div class="col-md-10 offset-md-1 dashboard-title-container">
-    <h1>Eventos que estou participando</h1>
+    <h1 style="color: #00A9E0;" >Eventos que estou participando</h1>
 </div>
 <div class="col-md-10 offset-md-1 dashboard-events-container">
     @if(count($eventsAsParticipant) > 0)
@@ -49,32 +50,34 @@
         <p>Você ainda não participa de nenhum evento, <a href="/">veja todos os eventos</a>.</p>
     @endif
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Participantes</th>
-            <th scope="col">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($eventsAsParticipant as $event)
+<div class="col-md-10 offset-md-1 dashboard-events-container" style="width: 70%!important;">
+    <table class="table">
+        <thead>
             <tr>
-                <td scope="row"> {{ $loop->index + 1 }}</td>
-                <td><a href="/events/{{ $event->id }}">{{ $event->Title }}</a></td>
-                <td>{{ count($event->users) }}</td>
-                <td>
-                    <form action="/events/leave/{{ $event->id }}" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit" class="btn btn-danger delete-btn">
-                            <ion-icon name="trash-outline"></ion-icon> Sair do evento
-                        </button>
-                    </form>
-                </td>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Participantes</th>
+                <th scope="col">Ações</th>
             </tr>
-        @endforeach
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach($eventsAsParticipant as $event)
+                <tr>
+                    <td scope="row"> {{ $loop->index + 1 }}</td>
+                    <td><a href="/events/{{ $event->id }}">{{ $event->Title }}</a></td>
+                    <td>{{ count($event->users) }}</td>
+                    <td>
+                        <form action="/events/leave/{{ $event->id }}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-danger delete-btn">
+                                <ion-icon name="exit-outline"></ion-icon> Sair do evento
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

@@ -4,14 +4,34 @@
 }
 
 body {
-  min-height: 100vh;
-  padding-bottom: 100px;
-  position: relative;
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+    background-image: url("../img/earthEdited.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
 }
 
 header {
-  background-color: #FFF;
-  border-bottom: 1px solid #CCC;
+    background-color: #ffffff00;
+    border-bottom: 1px solid #cccccc;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
+#iconeLogo{
+    fill: #ffff;
+    height: 3rem;
+    width: 3rem;
+}
+
+h2{
+    color: #00A9E0;
+    text-shadow: 0 0 10px #fff, 0 0 50px #fff, 0 0 20px #00A9E0, 0 0 30px #00A9E0, 0 0 0px #00A9E0, 0 0 0px #00A9E0, 0 0 150px #00A9E0;
 }
 
 .row {
@@ -23,13 +43,13 @@ header {
 }
 
 .btn-primary {
-  background-color: #F2A340;
-  border: 2px solid #C28008;
+  background-color: #00A9E0;
+  border: 2px solid #177fa2;
 }
 
 .btn-primary:hover {
-  background-color: #C28008;
-  border-color: #C28008;
+  background-color: #177fa2;
+  border-color: #22657c;
 }
 
 .msg {
@@ -53,31 +73,31 @@ header {
 
 /* navbar */
 #navbar img {
-  width: 40px;
+    width: 40px;
 }
 
 #navbar {
-  justify-content: space-between;
-  background-color: #FFF;
-  padding: 5px 0;
+    justify-content: space-between;
+    padding: 5px 25px 5px 25px;
+
 }
 
 #navbar a {
-  font-size: 14px;
-  color: #757575;
+    font-size: 14px;
+    color: #cfcfcf;
 }
 
 #navbar a:hover {
-  color: #F2A340;
+    color: #00A9E0;
+    text-shadow: 0 0 200px #fff, 0 0 10px #fff, 0 0 12px #00A9E0, 0 0 30px #00A9E0, 0 0 0px #00A9E0, 0 0 0px #00A9E0, 0 0 150px #00A9E0;
+
+
 }
 
 /* Search Container */
 #search-container {
-  background-image: url("../img/banner.jpg");
-  background-size: cover;
-  background-position: center;
   height: 400px;
-  padding: 50px;
+  padding: 8rem;
   text-align: center;
 }
 
@@ -93,17 +113,22 @@ header {
 }
 
 /* Events list */
+#subtitle{
+   color: #cfcfcf!important;
+}
+
 #events-container {
-  padding: 50px;
+  padding: 5px 50px;
 }
 
 #events-container h2 {
   margin-bottom: 10px;
+  padding-left: 5px;
 }
 
 #events-container .subtitle {
   color: #757575;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #cards-container {
@@ -116,17 +141,20 @@ header {
   border-radius: 10px;
   padding: 0;
   margin: .5%;
+  backdrop-filter: blur(10px);
+  background-color: #e1e1e1e0;
+  box-shadow: 3px 2px 5px #000000;
 }
 
 #events-container img {
-  /*max-height: 150px;*/
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    max-height: 180px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .card .card-date {
   font-size: 12px;
-  color: #CCC;
+  color: #757575;
 }
 
 .card .card-title {
@@ -143,27 +171,59 @@ header {
 
 /* Event create page */
 #event-create-container {
-  padding: 30px
+  padding-top: 8rem;
 }
 
 #event-create-container label {
   font-weight: bold;
+  color: #00A9E0;
+}
+
+#h1-crie-seu-evento{
+    color: #00A9E0;
+    text-shadow: 0 0 10px #fff, 0 0 50px #fff, 0 0 20px #00A9E0, 0 0 30px #00A9E0, 0 0 0px #00A9E0, 0 0 0px #00A9E0, 0 0 150px #00A9E0;
+
 }
 
 #event-create-container input,
 #event-create-container select,
 #event-create-container textarea {
   font-size: 12px;
+  backdrop-filter: blur(10px);
+  background: #ffffff0e;
+  color: #fff;
+}
+
+#title::placeholder{
+    color: #fff;
+}
+
+#city::placeholder{
+    color: #fff;
+}
+
+#description::placeholder{
+    color: #fff;
+}
+
+#confirmacao-evento-criado{
+    padding-top: 5rem;
+}
+
+#infraestrutura{
+    color: #F2A340;
 }
 
 /* Event page */
 #image-container,
 #info-container {
-  margin-top: 30px;
+  margin-top: 100px;
+
 }
 
 #image-container img {
   border-radius: 10px;
+  box-shadow: 2px 3px 5px #22222282;
 }
 
 #info-container h1 {
@@ -175,12 +235,14 @@ header {
   margin: 0;
   font-size: 14px;
   display: flex;
+  color: #F2A340;
 }
 
 #info-container h3,
 #description-container h3 {
   font-size: 20px;
   font-weight: bold;
+  color: #F2A340;
 }
 
 #info-container ion-icon {
@@ -196,6 +258,7 @@ header {
 #items-list {
   list-style: none;
   padding-left: 0;
+  color: #F2A340;
 }
 
 #items-list li {
@@ -204,6 +267,7 @@ header {
 
 #description-container{
     margin-top: 30px;
+    color: #FFF;
 }
 
 /* DASHBOARD */
@@ -227,9 +291,9 @@ header {
 /* footer */
 footer {
   text-align: center;
-  background-color: #353E48;
-  color: #FFF;
-  padding: 30px;
+  background-color: #212427c3;
+  color: #ededed;
+  padding: 10px;
   position: absolute;
   bottom: 0;
   width: 100%;
